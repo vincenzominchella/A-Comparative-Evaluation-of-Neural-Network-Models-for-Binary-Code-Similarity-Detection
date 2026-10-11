@@ -1,0 +1,95 @@
+# ==============================================================================
+# GitIgnore for Neural BCSD Benchmark (Tesi Vincenzo Minchella)
+# Prevents files >100MB, virtualenvs, IDA artifacts, and model checkpoints
+# ==============================================================================
+
+# 1. Model Weights & Checkpoints (>100 MB)
+# ------------------------------------------------------------------------------
+SAFEtorch.pt
+**/model/SAFEtorch.pt
+*.pt
+*.pth
+*.bin
+*.pkl
+*.pickle
+*.h5
+*.onnx
+*.safetensors
+*.ckpt
+*.checkpoint
+pytorch_model.bin
+optimizer.pt
+jTrans.pkl
+**/jTrans/models/
+**/jTrans/experiments/
+**/PalmTree/models/
+**/PalmTree/output/
+**/SafeTorch/model/
+
+# 2. Virtual Environments & Package Managers
+# ------------------------------------------------------------------------------
+env_tirocinio/
+miniconda3/
+anaconda3/
+.env
+.venv
+env/
+venv/
+ENV/
+*.pyenv/
+
+# 3. Disassembler Temporary & Database Files (IDA Pro, Radare2)
+# ------------------------------------------------------------------------------
+*.id0
+*.id1
+*.id2
+*.nam
+*.til
+*.idb
+*.i64
+*.dmp
+*.r2
+*.r2db
+
+# 4. Large Archives & Binary Dumps (>100 MB)
+# ------------------------------------------------------------------------------
+*.zip
+*.tar.gz
+*.tar
+*.7z
+*.rar
+*.gz
+*.db
+*.sqlite
+*.sqlite3
+
+# 5. Python Caches & Build Artifacts
+# ------------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.class
+*.so
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 6. IDEs & Operating System Artifacts
+# ------------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~

@@ -1,0 +1,6 @@
+Ranking;Funzione (SAFE);% SAFE;Delta SAFE;Funzione (PalmTree);% PalmTree;Delta PalmTree;Funzione (jTrans);% jTrans;Delta jTrans
+#1;main;69.18%;-;main;96.03%;-;main;80.16%;-
+#2;close_stdout;52.98%;16.20%;close_stdout;95.87%;0.16%;usage;67.09%;13.07%
+#3;version_etc_va;49.59%;19.59%;hextobin;93.38%;2.65%;__libc_csu_init;58.10%;22.05%
+#4;usage;47.90%;21.28%;quotearg_buffer_restyled;92.61%;3.42%;clone_quoting_options;50.95%;29.21%
+#5;quotearg_n_options;47.53%;21.65%;xnmalloc_inline;91.34%;4.69%;close_stdout;48.74%;31.42%
