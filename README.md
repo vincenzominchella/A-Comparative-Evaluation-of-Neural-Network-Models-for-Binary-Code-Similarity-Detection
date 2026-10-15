@@ -215,7 +215,7 @@ Evaluating zero-shot transfer across radically different Instruction Set Archite
 
 ```
 .
-├── 2_Test_Coreutils_Echo/                    # Testbed 1: Semantic Ranking (1-to-N)
+├── 1_Test_Coreutils_Echo/                    # Testbed 1: Semantic Ranking (1-to-N)
 │   ├── dataset_DeepBinDiff/                 # Disassembled Coreutils echo v5.93 binaries
 │   ├── tabelle_risultati/                   # Complete benchmark CSVs (O0_vs_O0, O0_vs_O3, O3_vs_O0, O3_vs_O3)
 │   ├── 05_embedding_safe_coreutils.py       # SAFE feature extraction & embedding pipeline
@@ -224,7 +224,7 @@ Evaluating zero-shot transfer across radically different Instruction Set Archite
 │   ├── 08_ricerca_coreutils.py              # Top-K Cosine Similarity ranking engine
 │   └── genera_tabelle_ranking.py            # Automated CSV benchmark exporter
 │
-├── 3_Vulnerability_Discovery/                # Testbed 2 & 3: Fine-Grained Triangulation & Cross-Arch
+├── 2_Test_Vulnerability_Discovery/                # Testbed 2 & 3: Fine-Grained Triangulation & Cross-Arch
 │   ├── dataset/                             # x86-64 C sources and compiled binaries
 │   ├── datasetCompilatiArchitetturaDiversa/ # RISC-V cross-compiled binaries
 │   ├── embeddingX86/                        # Extracted x86-64 JSON embedding vectors
@@ -284,7 +284,12 @@ Since pre-trained checkpoints exceed GitHub's 100 MB file limit, download them d
 #### D. IDA Pro Symlink Configuration
 Link your local IDA Pro installation inside jTrans data utilities:
 ```bash
-cd jTrans/datautils
+# Link IDA Pro in Testbed 1 and/or Testbed 2
+cd 1_Test_Coreutils_Echo/jTrans/datautils
+ln -s /path/to/your/ida-pro-install ./ida
+cd ../..
+
+cd 2_Test_Vulnerability_Discovery/jTrans/datautils
 ln -s /path/to/your/ida-pro-install ./ida
 cd ../..
 ```
@@ -296,7 +301,7 @@ cd ../..
 ### Reproducing Testbed 1 (Coreutils Search Space Ranking)
 
 ```bash
-cd 2_Test_Coreutils_Echo
+cd 1_Test_Coreutils_Echo
 
 # 1. Generate SAFE embeddings (Radare2 + RNN)
 python3 05_embedding_safe_coreutils.py
@@ -325,7 +330,7 @@ python3 genera_tabelle_ranking.py
 ### Reproducing Testbed 2 (Vulnerability Discovery & Triangulation)
 
 ```bash
-cd 3_Vulnerability_Discovery
+cd 2_Test_Vulnerability_Discovery
 
 # 1. Feature Extraction (select dataset folder in scripts)
 python3 09_embedding_safe_vuln.py
