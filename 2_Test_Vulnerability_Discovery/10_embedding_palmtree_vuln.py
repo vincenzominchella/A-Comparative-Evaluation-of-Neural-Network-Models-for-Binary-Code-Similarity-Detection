@@ -155,8 +155,7 @@ def estrai_vettori_palmtree_da_binario(binary_path, output_json, target_name="AL
                     print("SKIP (Nessuna istruzione Assembly valida estratta)")
                     continue
                 
-                # LIMITAZIONE ARCHITETTURALE: I modelli basati su BERT supportano un max di 512 token
-                # Tronchiamo le funzioni giganti per prevenire out-of-memory o errori del tensore
+                # Tronchiamo le funzioni a un massimo di 512 istruzioni (come nel paper originale, limite a livello di istruzioni e non di sub-token) per prevenire out-of-memory o errori del tensore
                 if len(istruzioni_testo) > 512:
                     istruzioni_testo = istruzioni_testo[:512]
                 

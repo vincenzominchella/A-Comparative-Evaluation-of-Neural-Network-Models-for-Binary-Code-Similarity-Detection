@@ -58,7 +58,7 @@ This repository presents an **objective, rigorous, and balanced comparative eval
 | Model | Underlying Architecture | Input Representation | Max Sequence Length | Pooling Strategy | CFG Aware? | Disassembler Dependency | Inference Cost & Overhead |
 | :--- | :--- | :--- | :--- | :--- | :---: | :--- | :--- |
 | **SAFE** | Bi-directional GRU + Self-Attention | Normalized instructions (Opcode + operands) | 150 instructions (zero-padded) | Self-Attentive Weighted Sum | ❌ No (Sequential) | **Open-source** (Radare2 / Capstone) | **Very Low** (Near-instantaneous) |
-| **PalmTree**| 12-layer Transformer (BERT-base) | Sub-instruction assembly tokens | 20 tokens / instruction | Global Mean Pooling over all instructions | ⚠️ Weak (Pretrained on CFG/DFG) | **Open-source** (Capstone) | **Medium** (Per-instruction BERT) |
+| **PalmTree**| 12-layer Transformer (BERT-base) | Sub-instruction assembly tokens | 20 tokens / instruction (max 512 instructions / function) | Global Mean Pooling over all instructions | ⚠️ Weak (Pretrained on CFG/DFG) | **Open-source** (Capstone) | **Medium** (Per-instruction BERT) |
 | **jTrans** | 12-layer Transformer + Jump-Aware Positional Encoding | Assembly tokens + Basic Block Jump Encodings | 512 tokens / function | `[CLS]` token embedding | ✅ Yes (Full CFG) | **Proprietary** (**IDA Pro** required) | **High** (IDA batch scripting + TF) |
 
 ---
